@@ -1,0 +1,362 @@
+#N canvas -9 -9 1920 976 10;
+#X floatatom 19 134 5 0 0 0 - - -;
+#X msg 14 9 62;
+#X msg 45 9 64;
+#X msg 73 9 66;
+#X msg 101 9 69;
+#X msg 130 9 71;
+#X msg 159 9 74;
+#X obj 14 44 mtof;
+#X obj 14 218 +~;
+#X obj 81 156 osc~;
+#X obj 79 124 hsl 130 22 0 500 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 516 1;
+#X obj 79 194 *~;
+#X obj 228 133 hsl 130 22 0 500 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 516 1;
+#X msg 225 163 \$1 20;
+#X obj 226 186 line~;
+#X obj 14 253 osc~;
+#X obj 14 291 *~;
+#X msg 477 110 \$1 20;
+#X obj 478 132 line~;
+#X obj 479 80 hsl 130 22 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 6450 1;
+#X obj 650 110 metro 50;
+#X obj 650 76 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 650 17 loadbang;
+#X obj 75 70 loadbang;
+#X obj 223 74 loadbang;
+#X obj 478 18 loadbang;
+#X msg 478 53 0.5;
+#X msg 225 109 20;
+#X msg 76 96 20;
+#X obj 17 473 dac~;
+#X text 269 107 Modulação por frequência;
+#X obj 18 382 hip~;
+#X obj 17 408 lop~;
+#X obj 169 325 hsl 130 22 30 200 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 5312 1;
+#X obj 318 327 hsl 130 22 500 2000 0 0 empty empty empty -2 -8 0 10
+-262144 -1 -1 4300 1;
+#X floatatom 166 355 5 0 0 0 - - -;
+#X floatatom 315 356 5 0 0 0 - - -;
+#X obj 166 274 loadbang;
+#X msg 166 301 100;
+#X obj 317 270 loadbang;
+#X msg 316 300 1000;
+#X text 196 304 Filtro Passa-alto;
+#X text 352 305 Filtro Passa baixo;
+#X obj 50 353 line~;
+#X obj 18 440 *~;
+#X text 48 300 Duração das notas;
+#X msg 52 319 1 \, 0 1000;
+#X text 332 393 Parte 1 : Tocadas notas musicais \, onde existe controlo
+sobre o volume e a duração. É aplicado um filtro passa baixo e/ou
+um filtro passa alto.da duração das notas. Também é efectuada modulação
+por frequência e amplitude.;
+#X text 199 7 Escala de Ré maior;
+#X obj 969 387 hsl 130 20 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 6450 1;
+#X floatatom 918 84 5 0 0 0 - - -;
+#X obj 917 178 phasor~;
+#X obj 993 187 phasor~;
+#X obj 990 124 *~ -1;
+#X msg 944 135 0;
+#X obj 994 286 clip~ 0 1;
+#X obj 919 283 clip~ 0 1;
+#X obj 921 328 +~;
+#X msg 966 414 \$1 20;
+#X obj 966 443 line~;
+#X obj 1272 410 *~;
+#X floatatom 1222 75 5 0 0 0 - - -;
+#X obj 1233 207 phasor~;
+#X obj 1338 196 phasor~;
+#X obj 1311 139 *~ -1;
+#X msg 1242 168 0;
+#X msg 1374 115 0.5;
+#X obj 1399 209 hsl 130 20 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 6450 1;
+#X msg 1395 247 \$1 20;
+#X obj 1397 280 line~;
+#X obj 1121 387 metro 50;
+#X obj 1119 367 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj 1403 369 metro 50;
+#X obj 1401 339 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj 966 334 loadbang;
+#X msg 966 363 0.5;
+#X obj 1396 146 loadbang;
+#X msg 1396 177 0.5;
+#X obj 1400 308 loadbang;
+#X obj 1120 328 loadbang;
+#X obj 1120 422 tabwrite~ triangular;
+#X obj 1289 450 tabwrite~ quadrada;
+#X obj 650 145 tabwrite~ onda;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array onda 100 float 1;
+#A 0 0.480972 0.481359 0.481746 0.482122 0.482493 0.482863 0.483233
+0.483599 0.483952 0.484306 0.48466 0.485014 0.485351 0.485688 0.486026
+0.486363 0.486689 0.487009 0.487329 0.48765 0.487964 0.488267 0.488571
+0.488874 0.489177 0.489463 0.48975 0.490036 0.490323 0.490596 0.490866
+0.491135 0.491404 0.491666 0.491918 0.49217 0.492422 0.492672 0.492907
+0.493142 0.493377 0.493612 0.493832 0.49405 0.494267 0.494485 0.494694
+0.494894 0.495094 0.495294 0.495491 0.495674 0.495856 0.496039 0.496222
+0.496389 0.496554 0.49672 0.496885 0.49704 0.497188 0.497336 0.497484
+0.497627 0.499958 0.49997 0.499978 0.499987 0.499995 0.499996 0.499987
+0.499979 0.49997 0.49996 0.499935 0.499909 0.499883 0.499858 0.49982
+0.499778 0.499735 0.499692 0.499645 0.499585 0.499526 0.499466 0.499407
+0.499333 0.499256 0.49918 0.499104 0.49902 0.498927 0.498834 0.498741
+0.498649 0.49854 0.49843 0.49832 0.498211;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 532 206 graph;
+#X msg 918 19 62;
+#X msg 949 19 64;
+#X msg 977 19 66;
+#X msg 1005 19 69;
+#X msg 1034 19 71;
+#X msg 1063 19 74;
+#X obj 918 54 mtof;
+#X text 1103 17 Escala de Ré maior;
+#X obj 918 214 *~ 2;
+#X obj 994 215 *~ 2;
+#X obj 919 247 -~ 1;
+#X obj 994 248 -~ 1;
+#X obj 924 474 *~;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array triangular 100 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 1661 281 graph;
+#X obj 1451 518 line~;
+#X text 1449 465 Duração das notas;
+#X msg 1453 484 1 \, 0 1000;
+#X obj 1230 290 -~ 1;
+#X obj 1230 265 +~;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array quadrada 100 float 1;
+#A 0 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5
+-0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5
+-0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5
+-0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5
+-0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5
+-0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5
+-0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5
+-0.5 -0.5 -0.5;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 1661 104 graph;
+#X obj 927 509 *~ 0.7;
+#X obj 927 588 *~;
+#X obj 1272 513 *~ 0.7;
+#X text 515 59 Amplitude onda;
+#X text 1041 369 Amplitude;
+#X text 1471 188 Amplitude;
+#X obj 928 668 lop~;
+#X obj 1036 514 hsl 130 22 500 2000 0 0 empty empty empty -2 -8 0 10
+-262144 -1 -1 4300 1;
+#X floatatom 1033 543 5 0 0 0 - - -;
+#X obj 1035 454 loadbang;
+#X msg 1034 487 1000;
+#X text 1070 492 Filtro Passa baixo;
+#X obj 929 720 *~;
+#X obj 929 760 dac~;
+#X obj 1444 615 metro 50;
+#X obj 1446 584 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj 1446 555 loadbang;
+#X text 1514 29 Parte 2: Resultado da junção de uma onda quadrada
+com uma onda triangular \, sendo ainda aplicado um filtro passa baixo
+no final. A amplitude é controlada os dois tipos de onda \, tanto
+como o tempo de duração de cada nota;
+#X obj 1444 645 tabwrite~ uniao;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array uniao 100 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 1665 448 graph;
+#X floatatom 37 681 15 0 0 0 - - -;
+#X obj 615 633 spigot;
+#X obj 502 607 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 641 606 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 37 660 soundfiler;
+#X obj 502 640 tabplay~ drum;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array drum 470400 float 2;
+#X coords 0 1 470400 -1 200 140 1;
+#X restore 35 781 graph;
+#X msg 37 639 read -resize drum.wav drum;
+#X obj 502 670 hip~ 5;
+#X obj 499 698 delwrite~ buff1 10000;
+#X floatatom 528 724 5 0 0 0 - - -;
+#X obj 528 746 sig~;
+#X obj 528 765 vd~ buff1;
+#X obj 528 815 *~;
+#X obj 528 862 *~;
+#X obj 528 881 hip~ 5;
+#X obj 528 912 dac~;
+#X floatatom 552 789 5 0 0 0 - - -;
+#X floatatom 553 844 5 0 0 0 - - -;
+#X obj 396 646 spigot;
+#X obj 272 617 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 382 618 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 272 645 tabplay~ drum;
+#X obj 273 673 hip~ 5;
+#X obj 272 698 dac~;
+#X text 12 536 Parte 3 : Um ficheiro wav é lido e re-dimensionado
+\, de seguida é aplicado um filtro passa-alto e é ouvido em loop.
+É ainda posto em prática um Reverb no contéudo do ficheiro wav e
+ouvido em loop.;
+#X connect 0 0 8 0;
+#X connect 0 0 46 0;
+#X connect 1 0 7 0;
+#X connect 2 0 7 0;
+#X connect 3 0 7 0;
+#X connect 4 0 7 0;
+#X connect 5 0 7 0;
+#X connect 6 0 7 0;
+#X connect 7 0 0 0;
+#X connect 8 0 15 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 11 0 8 1;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 11 1;
+#X connect 15 0 16 0;
+#X connect 16 0 31 0;
+#X connect 16 0 82 0;
+#X connect 17 0 18 0;
+#X connect 18 0 16 1;
+#X connect 19 0 17 0;
+#X connect 20 0 82 0;
+#X connect 21 0 20 0;
+#X connect 22 0 21 0;
+#X connect 23 0 28 0;
+#X connect 24 0 27 0;
+#X connect 25 0 26 0;
+#X connect 26 0 19 0;
+#X connect 27 0 12 0;
+#X connect 28 0 10 0;
+#X connect 31 0 32 0;
+#X connect 32 0 44 0;
+#X connect 33 0 35 0;
+#X connect 34 0 36 0;
+#X connect 35 0 31 1;
+#X connect 36 0 32 1;
+#X connect 37 0 38 0;
+#X connect 38 0 33 0;
+#X connect 39 0 40 0;
+#X connect 40 0 34 0;
+#X connect 43 0 44 1;
+#X connect 44 0 29 0;
+#X connect 44 0 29 1;
+#X connect 46 0 43 0;
+#X connect 49 0 58 0;
+#X connect 50 0 51 0;
+#X connect 50 0 53 0;
+#X connect 50 0 54 0;
+#X connect 50 0 100 0;
+#X connect 51 0 92 0;
+#X connect 52 0 93 0;
+#X connect 53 0 52 0;
+#X connect 54 0 51 1;
+#X connect 54 0 52 1;
+#X connect 55 0 57 1;
+#X connect 56 0 57 0;
+#X connect 57 0 96 0;
+#X connect 58 0 59 0;
+#X connect 59 0 96 1;
+#X connect 60 0 81 0;
+#X connect 60 0 106 0;
+#X connect 61 0 62 0;
+#X connect 61 0 64 0;
+#X connect 61 0 65 0;
+#X connect 61 0 66 0;
+#X connect 61 0 100 0;
+#X connect 62 0 102 0;
+#X connect 63 0 102 1;
+#X connect 64 0 63 0;
+#X connect 65 0 62 1;
+#X connect 66 0 63 1;
+#X connect 67 0 68 0;
+#X connect 68 0 69 0;
+#X connect 69 0 60 1;
+#X connect 70 0 80 0;
+#X connect 71 0 70 0;
+#X connect 72 0 81 0;
+#X connect 73 0 72 0;
+#X connect 74 0 75 0;
+#X connect 75 0 49 0;
+#X connect 76 0 77 0;
+#X connect 77 0 67 0;
+#X connect 78 0 73 0;
+#X connect 79 0 71 0;
+#X connect 84 0 90 0;
+#X connect 85 0 90 0;
+#X connect 86 0 90 0;
+#X connect 87 0 90 0;
+#X connect 88 0 90 0;
+#X connect 89 0 90 0;
+#X connect 90 0 50 0;
+#X connect 90 0 61 0;
+#X connect 92 0 94 0;
+#X connect 93 0 95 0;
+#X connect 94 0 56 0;
+#X connect 95 0 55 0;
+#X connect 96 0 80 0;
+#X connect 96 0 104 0;
+#X connect 98 0 116 1;
+#X connect 100 0 98 0;
+#X connect 101 0 60 0;
+#X connect 102 0 101 0;
+#X connect 104 0 105 0;
+#X connect 105 0 110 0;
+#X connect 106 0 105 1;
+#X connect 110 0 116 0;
+#X connect 111 0 112 0;
+#X connect 112 0 110 1;
+#X connect 113 0 114 0;
+#X connect 114 0 111 0;
+#X connect 116 0 117 0;
+#X connect 116 0 117 1;
+#X connect 116 0 122 0;
+#X connect 118 0 122 0;
+#X connect 119 0 118 0;
+#X connect 120 0 119 0;
+#X connect 125 0 126 0;
+#X connect 126 0 129 0;
+#X connect 127 0 125 1;
+#X connect 128 0 124 0;
+#X connect 129 0 132 0;
+#X connect 129 1 125 0;
+#X connect 131 0 128 0;
+#X connect 132 0 133 0;
+#X connect 134 0 135 0;
+#X connect 135 0 136 0;
+#X connect 136 0 137 0;
+#X connect 137 0 138 0;
+#X connect 137 0 133 0;
+#X connect 138 0 139 0;
+#X connect 139 0 140 0;
+#X connect 139 0 140 1;
+#X connect 141 0 137 1;
+#X connect 142 0 138 1;
+#X connect 143 0 144 0;
+#X connect 144 0 146 0;
+#X connect 145 0 143 1;
+#X connect 146 0 147 0;
+#X connect 146 1 143 0;
+#X connect 147 0 148 0;
+#X connect 147 0 148 1;
